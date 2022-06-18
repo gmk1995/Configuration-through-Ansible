@@ -1,0 +1,94 @@
+Name: Gopavaram Mohan Kumar
+Batch: April 15th, 2022
+Tutor: Raham Shaik
+Project Name: Configuration through Ansible.
+Project: Install Docker Git Tree and Httpd services through Ansible on the RedHat Machine.
+1.	Configured ansible on the Master node.
+2.	As per the Project Requirements took one RedHat and Ubuntu flavour’s machines and connected to an ansible master node.
+ 
+3.	Written Ansible playbook for installing Docker, Git, Tree, and HTTPD services on the RedHat Machine.
+ 
+4.	Ran the playbook by running the ( ansible-playbook playbook.yml) command.
+
+Project: Install Docker Git Tree and Httpd services through Ansible on the RedHat Machine.
+
+---#PROJECT CONFIGURATION THROUGH ANSIBLE
+
+- hosts: ubu
+  user: ansible
+  become: yes
+  connection:ssh
+  tasks: 
+          - name: Installing docker git tree HTTPd in redhat
+            command: yum install docker git tree httpd -y
+ 
+5.	Playbook successfully configured and installed Docker, Git, Tree, and HTTPD services on the RedHat Machine. Checked Versions of the Docker, Git, Tree, and HTTPD services.
+ 
+
+6.	To check the httpd services taken instance Public IP address and pasted on the browser to access the httpd services with the port number: 80.
+ 
+Project: Install Java Maven Jenkins through Ansible on the Ubuntu Machine.
+
+Java  Installation using Ansible playbook on Ubuntu Machine: 
+
+1.	Written the installjava.yml playbook.
+ 
+2.	Ran the installjava.yml playbook to install the Java on Ubuntu Machine.
+ 
+3.	Successfully installed java on Ubuntu Machine and Checked Java Version.
+ 
+ --- #PROJECT CONFIGURATION THROUGH ANSIBLE
+- hosts: ubu
+  user: ansible
+  become: yes
+  connection:ssh
+  tasks: 
+    - name: Task -1 Update APT Manager Repositories cache
+      apt: 
+         update_cache: yes
+    - name: Task -2 Install Java Using Ansible
+      action: apt name=openjdk-11-jdk state=present
+
+
+Jenkins Installation using Ansible playbook on Ubuntu Machine: 
+
+1.	Written installjenkins.yml playbook to install the Jenkins service.
+
+--- #PROJECT CONFIGURATION THROUGH ANSIBLE
+- hosts: ubu
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Fetching the jenkins apt repository key 
+      apt_key: url=https://pkg.jenkins.io/debian-stable/jenkins.io.key state=present
+    - name: Repository configuration
+      apt_repository: repo='deb https://pkg.jenkins.io/debian-stable binary/' state=present
+    - name: Jenkins Installation
+      apt: name=jenkins update_cache=yes
+    - name: Jenkins Running
+      service: name=jenkins state=started
+     
+ 
+2.	Ran the intsalljenkins.yml playbook to install the Jenkins services on the Ubuntu Machine.
+3.	Successfully installed the Jenkins on the targeted Ubuntu Machine and checked the Jenkins version.
+4.	Accessed Jenkins services with the Instance Public IP Address and port number: 8080. Successfully accessed the Jenkins services.
+ 
+Maven Installation using Ansible playbook on Ubuntu Machine: 
+
+1.	Written installmaven.yml playbook to install the maven on the ubuntu machine.
+
+--- #PROJECT CONFIGURATION THROUGH ANSIBLE
+- hosts: ubu
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Installing Maven using ansible on the Ubuntu Machine
+      apt: name=maven state=present
+ 
+2.	Ran the installmaven.yml playbook file to install maven on ubuntu machine.
+ 
+3.	Successfully installed the maven and checked the version of the maven.
+ 
+
