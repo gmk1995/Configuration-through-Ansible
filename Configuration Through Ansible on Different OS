@@ -1,6 +1,4 @@
-Name: Gopavaram Mohan Kumar
-Batch: April 15th, 2022
-Tutor: Raham Shaik
+
 Project Name: Configuration through Ansible.
 Project: Install Docker Git Tree and Httpd services through Ansible on the RedHat Machine.
 1.	Configured ansible on the Master node.
